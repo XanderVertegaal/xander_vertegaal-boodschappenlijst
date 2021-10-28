@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ShoppingCart from './ShoppingCart'
 import GroceryList from './GroceryList'
-import EmptyCartButton from './EmptyCartButton'
 
 const Container = () => {
     const [inputValue, setInputValue] = useState("")
@@ -21,10 +20,7 @@ const Container = () => {
     
     const [shoppingListItems, setShoppingListItems] = useState(
         [
-            { id: 1, title: 'Brood', amount: 1}, 
-            { id: 2, title: 'Yoghurt', amount: 1}, 
-            { id: 3, title: 'Kattenvoer', amount: 1}, 
-            { id: 4, title: 'Chocolade', amount: 1}
+            { id: 1, title: 'Melk', amount: 1}, 
         ]
     )
 
@@ -73,8 +69,8 @@ const Container = () => {
     }
 
     return (
-        <>
-            <GroceryList 
+        <div className="container">
+            <GroceryList
                 productData = {GroceryItems} 
                 clickHandler = {handleClickGroceryItem}
                 handleKeyDown = {handleKeyDown}
@@ -82,14 +78,11 @@ const Container = () => {
                 inputValue = {inputValue}
             />
 
-            <h2>Winkelwagen</h2>
             <ShoppingCart 
                 productData = {shoppingListItems}
+                btnClickHandler = {emptyCart}
             />
-            <EmptyCartButton 
-                clickHandler = {emptyCart}
-            />
-        </>
+        </div>
     )
 }
 

@@ -5,13 +5,16 @@ import InputField from './InputField'
 const GroceryList = props => {
     return (
         <>
-            <h2>Boodschappenlijst</h2>
+            <h2 className="grocery-list-title">
+                Boodschappenlijst
+            </h2>
             <InputField 
                 keyDownHandler = {props.handleKeyDown}
                 changeHandler = {props.handleChange}
                 value={props.inputValue}
             />
             <List 
+                className = "grocery-list-list"
                 productData = {props.productData} 
                 clickHandler = {props.clickHandler}
                 displayAmount = {false} 
